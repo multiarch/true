@@ -4,5 +4,10 @@ dist:	true.go
 	goxc -bc linux -d . -pv dist xc
 	goupx dist/*/true
 
+.PHONY: clean
 clean:
 	rm -rf dist
+
+.PHONY: re
+re: clean dist
+
