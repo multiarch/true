@@ -1,4 +1,4 @@
-# true
+# :earth_africa: true [![Build Status](https://travis-ci.org/multiarch/true.svg?branch=master)](https://travis-ci.org/multiarch/true)
 
 ![](https://raw.githubusercontent.com/multiarch/dockerfile/master/logo.jpg)
 

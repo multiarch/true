@@ -1,0 +1,28 @@
+dist: xenial
+services:
+    - docker
+language: go
+addons:
+    apt:
+        config:
+            retries: true
+        update: true
+        sources:
+            - sourceline: 'deb http://archive.ubuntu.com/ubuntu bionic main universe'
+        packages:
+            # To use upx command.
+            # upx 3.94 on bionic works.
+            # upx 3.91 on xenial does not work for amd64 case.
+            - upx-ucl
+install:
+    - make clean dist
+    - docker images
+script:
+    - docker run --rm multiarch/true:linux_amd64
+    - docker run --rm multiarch/true:linux_386
+    - |
+      if docker run --rm multiarch/true:linux_arm; then
+          false
+      else
+          true
+      fi
